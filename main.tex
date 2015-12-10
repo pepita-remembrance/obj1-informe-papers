@@ -9,10 +9,10 @@
 \usepackage{xcolor}
 \usepackage{hyperref}
 
-\newcommand{\borrador}[1]{{\color{red}{#1}}}
-\newcommand\nombre{\textsc}
-
+\nocite{*}
 \addbibresource{main.bib}
+
+\newcommand{\strongitem}[1]{\item \textbf{#1:}}
 
 \setlength\parindent{1em}
 
@@ -24,11 +24,32 @@
 \maketitle
 
 \section{Introducción}
-Una de las principales discusiones\cite{Treaty} que se enmarcan dentro del universo de la programación orientada a objetos radica en cómo modelar el comportamiento (es decir, las acciones que pueden realizar los objetos). A lo largo de la corta historia del paradigma, han surgido distintas alternativas al problema, entre las que destacaremos dos: la utilización de una jerarquía de clases y el modelado con prototipos.
+Una de las principales discusiones que se enmarcan dentro del universo de la programación orientada a objetos radica en cómo modelar el comportamiento (es decir, las acciones que pueden realizar los objetos). A lo largo de la corta historia del paradigma, han surgido distintas alternativas al problema, entre las que destacaremos dos: la utilización de una jerarquía de clases y el modelado con prototipos.
 
 A partir de la lectura y el análisis de trabajos fundacionales sobre ambas opciones, es nuestro objetivo poder resumir las ideas que allí se mencionan, para luego elaborar nuestras propias conclusiones y plasmar también nuestra opinión sobre el tema.
 
 \section{Resumen de los trabajos leidos}
+
+\subsection{Using Prototypical Objects to Implement Shared Behavior in Object Oriented Systems}
+\subsection{SELF: The power of simplicity}
+\subsection{Delegation Is Inheritance}
+
+\subsection{A Shared View of Sharing: The Treaty of Orlando}
+El trabajo comienza diciendo que aunque muchas veces se pretende presentar al paradigma orientado a objetos como flexible y dinámico, sucede que la mayoría de lenguajes conocidos (hasta ese momento) trabajan con jerarquías de tipos que penalizan la innovación.
+
+Los autores proponen 3 dimensiones independientes para analizar los mecanismos de compartición:
+\begin{itemize}
+	\strongitem{Estático / dinámico} ¿el mecanismo se establece al crear el objeto o al recibir un mensaje?
+	\strongitem{Implícito / explícito} ¿se pueden configurar estrategias de delegación o sólo puede hacerse método a método?
+	\strongitem{Por objeto / por grupo} ¿se puede especificar todo esto para un objeto particular o tiene que hacerse para un grupo?
+\end{itemize}
+
+Una vez planteado el problema, ``resuelven'' que:
+\begin{itemize}
+	\item Diferentes programas exigen diferentes criterios, y por lo tanto necesitan diferentes combinaciones de las dimensiones expuestas anteriormente.
+	\item Típicamente el mecanismo de clases es estático, implícito y por grupo, pero eso se debe a las implementaciones existentes y no al mecanismo per se.
+	\item Tal como los sistemas siguen una evolución desde una instancia inicial dinámica y desorganizada hacia algo más estático, también deberían hacerlo las representaciones en objetos, y los entornos de desarrollo deberían acompañar este proceso.
+\end{itemize}
 
 \section{Conclusiones}
 
