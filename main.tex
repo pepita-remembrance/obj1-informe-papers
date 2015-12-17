@@ -24,9 +24,9 @@
 \maketitle
 
 \section{Introducción}
-Una de las principales discusiones que se enmarcan dentro del universo de la programación orientada a objetos radica en cómo modelar el comportamiento (es decir, las acciones que pueden realizar los objetos). A lo largo de la corta historia del paradigma, han surgido distintas alternativas al problema, entre las que destacaremos dos: la utilización de una jerarquía de clases y el modelado con prototipos.
+Una de las principales discusiones que se enmarcan dentro del universo de la programación orientada a objetos radica en cómo modelar el comportamiento (es decir, las acciones que pueden realizar los objetos). A lo largo de la corta historia del paradigma, han surgido distintas alternativas al problema, entre las cuales destacaremos dos: la utilización de una jerarquía de clases y el modelado con prototipos.
 
-A partir de la lectura y el análisis de trabajos fundacionales sobre ambas opciones, es nuestro objetivo poder resumir las ideas que allí se mencionan, para luego elaborar nuestras propias conclusiones y plasmar también nuestra opinión sobre el tema.
+A partir de la lectura y el análisis de trabajos fundacionales sobre ambos mecanismos, elaboramos un breve resumen de cada paper, seguidos de una conclusión general sobre lo leído, y luego nuestras opiniones personales sobre cada uno.
 
 \section{Resumen de los trabajos leidos}
 
@@ -43,9 +43,7 @@ En este trabajo Lieberman hace una defensa del modelado mediante prototipos y lo
 \subsection{SELF: The power of simplicity}
 Se presenta el lenguaje Self, basado únicamente en prototipos y \textit{slots}. Al igual que Smalltalk, todos los objetos están \textit{vivos} en el ambiente, y las modificaciones que se realicen impactan sobre este.
 
-A lo largo del texto, los autores narran las decisiones de diseño que tomaron al construirlo (sólo existen envios de mensajes, no hay estructuras de control, los procedmientos son objetos) y lo comparan con otros lenguajes, principalmente Smalltalk. Dan también algunos ejemplos de cómo diseñar en Self, siempre contrastando con el modelo de clases e instancias (a veces con ejemplos un poco forzados).
-
-Algo interesante que plantean es que la flexibilidad que ofrece Self resulta en un desafío para quien desarrolle el entorno de programación, ya que este debe acompañar la navegación para que el lenguaje sea usable. Como veremos más adelante, nosotros creemos que el entorno existente no logra su cometido.
+A lo largo del texto, los autores narran las decisiones de diseño que tomaron al construirlo, por ejemplo: sólo existen envios de mensajes, no hay estructuras de control, los procedmientos son objetos, y comparan con otros lenguajes, principalmente Smalltalk. Acompañan también algunos ejemplos sobre cómo diseñar en Self, siempre contrastando con el modelo de clases e instancias. En particular, explican que la flexibilidad que ofrece Self resulta en un desafío para quien desarrolle el entorno de programación, ya que este debe acompañar la navegación para que el lenguaje sea usable. 
 
 \subsection{Delegation Is Inheritance}
 
@@ -93,7 +91,11 @@ Si bien este trabajo presenta varias ideas interesantes y fundamentales para com
 
 \subsection{SELF: The power of simplicity}
 
+Las explicaciones y motivaciones resultaron claras, y en general es un paper de lectura amena. Consideramos que algunos ejemplos comparativos con Smalltalk son algo forzados, y notamos que estas comparaciones son claramente contra implementaciones muy anteriores a las que estamos acostumbrados hoy en día.
 
+Al ser Self todo un ambiente, y no únicamente el lenguaje, es fundamental que este entorno posea una buena usabilidad. El mayor problema que encontramos al utilizar la implementación oficial fue una ausencia notable de mcuhos principios básicos de usabilidad. Por ejemplo en: patrones de búsqueda, organización en la pantalla, falta de semántica en las animaciones (es decir, las animaciones son sólo un detalle estilístico y no cumplen una función de usabilidad), pobreza en los shortcuts de teclado, etc.
+
+Si bien todas estas cosas no hacen al lenguaje en sí, lo cierto es que éste se encuentra gravemente acoplado a su entorno, y las falencias del mismo lo vuelven inusable en términos actuales.
 
 \subsection{Delegation Is Inheritance}
 
