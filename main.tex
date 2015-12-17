@@ -32,6 +32,14 @@ A partir de la lectura y el análisis de trabajos fundacionales sobre ambas opci
 
 \subsection{Using Prototypical Objects to Implement Shared Behavior in Object Oriented Systems}
 
+En este trabajo Lieberman hace una defensa del modelado mediante prototipos y lo contrasta contra el modelado basado en clases. Sus puntos pueden resumirse como:
+
+\begin{itemize}
+	\strongitem{Aprendizaje incremental} este argumento descansa sobre la teoría de que la adquisición y representación de conocimiento se encuentra más cercana a la ejemplificación, es decir, a la comparación contra un elemento concreto. Siguiendo la misma idea, critica la utilización de clases para modelar por considerar antinatural la necesidad de crear primero una descripción abstracta y luego una instancia concreta. 
+	\strongitem{Herencia vs. Delegación} declara que en un modelo puro de herencia, la única manera de agregar comportamiento es de manera estática mediante la creación de una subclase, mientras que la delegación permite cambiar comportamiento de manera dinámica. Sin embargo, cabe destacar que esta justificación está atada a implementaciones puntuales analizadas por el autor y no constituye una generalización rigurosa.
+	\strongitem{Herencia puede implementarse por delegación} explica que la delegación es más poderosa que la herencia porque esta última puede implementarse en términos de la primera
+\end{itemize}
+
 \subsection{SELF: The power of simplicity}
 Se presenta el lenguaje Self, basado únicamente en prototipos y \textit{slots}. Al igual que Smalltalk, todos los objetos están \textit{vivos} en el ambiente, y las modificaciones que se realicen impactan sobre este.
 
@@ -40,6 +48,9 @@ A lo largo del texto, los autores narran las decisiones de diseño que tomaron a
 Algo interesante que plantean es que la flexibilidad que ofrece Self resulta en un desafío para quien desarrolle el entorno de programación, ya que este debe acompañar la navegación para que el lenguaje sea usable. Como veremos más adelante, nosotros creemos que el entorno existente no logra su cometido.
 
 \subsection{Delegation Is Inheritance}
+
+El autor define formalmente los mecanismos de herencia y delegación, y demuestra que para cada modelo por delegación, existe un modelo por herencia posible, y que por cada modelo de herencia puede construirse un modelo de delegación. En otras palabras, demuestra que ambos son matemáticamente equivalentes. Hecho esto, plantea un modelo híbrido que aproveche ambos mecanismos, de manera que el programador pueda elegir qué mecanismo considera más apropiado para cierta problemática puntual. Además, el modelo que plantea tiene en cuenta el chequeo de tipos (esto es destacable porque los anteriores trabajos no lo cubrían).
+
 
 \subsection{A Shared View of Sharing: The Treaty of Orlando}
 El trabajo comienza diciendo que aunque muchas veces se pretende presentar al paradigma orientado a objetos como flexible y dinámico, sucede que la mayoría de lenguajes conocidos (hasta ese momento) trabajan con jerarquías de tipos que penalizan la innovación.
@@ -60,7 +71,38 @@ Una vez planteado el problema, ``resuelven'' que:
 
 \section{Conclusiones}
 
+A partir de los papers leidos, se comprende la importancia de un análisis riguroso de los mecanismos usados para definir comportamiento en el paradigma orientado a objetos. Se cristaliza, además, la necesidad latente detrás de los diferentes tipos de mecanismos, así como también las dificultades que uno u otro pudieran presentar.
+Con el Tratado de Orlando se puede entonces reconocer los conceptos que existen detrás de los mecanismos antes nombrados, facilitando no sólo la comprensión de los mismos, sino el análisis de mecanismos que pudieran aparecer a futuro. El valor de estos trabajos está muy lejos de ser meramente históricos, ya que aplican en la actualidad y constituyen una herramienta útil para analizar nuevas implementaciones.
+
+
+
 \section{Opiniones}
+
+
+\subsection{Using Prototypical Objects to Implement Shared Behavior in Object Oriented Systems}
+
+Si bien este trabajo presenta varias ideas interesantes y fundamentales para comprender las motivaciones detrás del uso de modelado mediante prototipos, presenta sus argumentos de una manera muy informal y sufre de varios problemas, entre los cuales se cuentan:
+
+\begin{itemize}
+	\item Nombra problemáticas adjudicándolas al campo de teoría del conocimiento, pero no referencia teorías o trabajos puntuales, con lo cual no se lo puede tomar seriamente. Sumado a eso, hay muchas frases del estilo \textit{``people seem to be a lot better at dealing with specific examples first''} o \textit{``Prototypes seem to be better at expressing knowledgeabout defaults''} que son enunciadas sin soporte teórico o empírico.
+	\item No brinda una definición clara de prototipos o clases, sino que ejemplifica a partir de implementaciones puntuales, sin analizar el modelo de fondo. Por ejemplo, enuncia que \textit{``Obviously, an object representing a method cannot itself have methods, otherwise infinite recursion would result''} cuando esto sólo es verdad dadas ciertas implementaciones, y está muy lejos de ser obvio. En general, es fácil encontrar enunciados carentes de justificación en su trabajo simplementa buscando la palabra \textit{``Obviously''}.
+  \item Realiza falsas generalizaciones adjudicando problemas de cierta implementación de clases a toda implementación de clases, como es el caso de \textit{``In addition, inheritance systems also allow the “shortcut” of binding all the variables of an instance so that they can be referenced directly by code naming in methods as free variables''}
+  \item Dice claramente que el modelo por prototipado es más poderoso que el de calses, pero obvia cualquier tipo de definición o demostración formal. Peor aún, asume que su imposibilidad para implementar delegación mediante herencia es demostración de que tal cosa no es posible. Aún si no fuera posible, asumir que ese hecho es demostración suficiente es claramente una falacia.
+\end{itemize}
+
+
+\subsection{SELF: The power of simplicity}
+
+
+
+\subsection{Delegation Is Inheritance}
+
+Este paper es probablemente uno de los más interesantes del grupo, ya que plantea definiciones claras y deja de lado el fanatismo hacia uno u otro mecanismo para intentar encontrar una manera de aprovechar lo mejor de ambos. Además, la clara diferenciación que hace entre implementaciones puntuales y el modelo puro es vital para entender efectivamente las ventajas y desventajas cada uno conlleva, ayudando a focalizar la discusión.
+
+\subsection{A Shared View of Sharing: The Treaty of Orlando}
+
+Es una puesta en común coherente, y hace un buen trabajo al resumir los conceptos que hay detrás de cada postura que se fue presentando. Si bien hubiera disfrutado más una puesta en común sobre temas más específicos (por ejemplo, una comparación de diferentes implementaciones), entiendo que esto sólo habría generado mayores discusiones y dificultado el acuerdo entre las partes.
+
 
 \printbibliography
 
